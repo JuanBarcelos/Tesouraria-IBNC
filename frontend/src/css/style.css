@@ -129,10 +129,8 @@ nav img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 147px;
-    height: 38px;
-    left: 1019px;
-    top: 448px;
+    width: 12.6rem;
+    height: 3.6rem;
     border: 1px solid #000000;
     border-radius: 30px;
     margin-right: 1.5rem;
@@ -180,6 +178,9 @@ nav img {
     width: 100%;
     border-spacing: 0 0.5rem;
 }
+table thead {
+    display: none;
+}
 
 table tbody tr td:first-child {
     border-radius: 1rem 0 0 1rem;
@@ -205,4 +206,85 @@ table tbody td {
     color: #000000;
     background: #fff;
     padding: 1rem 2rem;
+}
+/* resposividade */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 80rem;
+    }
+    header {
+        height: 32rem;
+    }
+    .hero {
+        margin-top: 6rem;
+    }
+    .price {
+        width: 260px;
+        height: 138px;
+        align-items: flex-start;
+    }
+    .title {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+    .filter-transaction .filter {
+        width: 9.5rem;
+        height: 2.9rem;
+        margin-right: 1rem;
+    }
+    .filter-transaction .filter-entradas a {
+        font-size: 1.2rem;
+        line-height: 2.1rem;
+    }
+    .filter a {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+    }
+    .export .btn {
+        border: none;
+        border-radius: 10px;
+        width: 4rem;
+        height: 4rem;
+    }
+    .export img {
+        width: 3rem;
+        height: 3rem;
+    }
+    table,
+    tbody,
+    td,
+    tr {
+        display: block;
+        width: 100%;
+    }
+    table tr {
+        margin-bottom: 1.5rem;
+    }
+    table tbody tr td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        font-size: 1.6rem;
+    }
+    table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        text-align: left;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-left: 1rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .container {
+        width: 35rem;
+    }
+    .btn-hero {
+        display: none;
+    }
 }
