@@ -28,7 +28,7 @@ body {
     border-width: 0;
 }
 .container {
-    width: min(90vw, 800px);
+    width: min(90vw, 1120px);
     margin: auto;
 }
 /*titles--------------*/
@@ -83,7 +83,7 @@ button:hover {
 }
 /* header-------------*/
 header {
-    background: #2d4a22;
+    background: #4542CB;
     padding: 2rem 0 10rem;
     text-align: center;
     font-weight: normal;
@@ -124,6 +124,10 @@ header h1 {
 }
 .card.total {
     background: var(--green);
+    color: white;
+}
+.card.caixa {
+    background: #2d4a22;
     color: white;
 }
 /*table---------------------*/
@@ -216,7 +220,8 @@ td.expense {
 #form h2 {
     margin-top: 0;
 }
-input {
+input,
+select {
     border: none;
     border-radius: 0.2rem;
 
@@ -234,6 +239,7 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2rem;
 }
 .imput-group.actions .button,
 .imput-group.actions button {
@@ -255,7 +261,7 @@ footer {
 
     #balance {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     }
 }

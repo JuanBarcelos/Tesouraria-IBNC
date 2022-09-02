@@ -1,3 +1,4 @@
+let teste = true;
 const Modal = {
     open() {
         // Abrir modal
@@ -51,6 +52,16 @@ const Transaction = {
         return income;
     },
 
+    entradas() {
+        const list = [];
+        Transaction.all.map((transaction) => {
+            if (transaction.amount > 0) {
+                list.push(transaction);
+            }
+        });
+        return list;
+    },
+
     expenses() {
         let expense = 0;
         Transaction.all.forEach((transaction) => {
@@ -59,6 +70,16 @@ const Transaction = {
             }
         });
         return expense;
+    },
+
+    saidas() {
+        const list = [];
+        Transaction.all.map((transaction) => {
+            if (transaction.amount < 0) {
+                list.push(transaction);
+            }
+        });
+        return list;
     },
 
     total() {
@@ -83,11 +104,12 @@ const DOM = {
         const amount = Utils.formatCurrency(transaction.amount);
 
         const html = `
+        <td class="description">${transaction.title}</td>
         <td class="description">${transaction.description}</td>
         <td class="${CSSclass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
-            <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
+            <img onclick="Transaction.remove(${index})" src="src/img/minus.svg" alt="Remover transação">
         </td>
         `;
 
@@ -137,12 +159,14 @@ const Utils = {
 };
 
 const Form = {
+    title: document.querySelector('select#titulo'),
     description: document.querySelector('input#description'),
     amount: document.querySelector('input#amount'),
     date: document.querySelector('input#date'),
 
     getValues() {
         return {
+            title: Form.title.value,
             description: Form.description.value,
             amount: Form.amount.value,
             date: Form.date.value,
@@ -150,9 +174,10 @@ const Form = {
     },
 
     validateFields() {
-        const { description, amount, date } = Form.getValues();
+        const { title, description, amount, date } = Form.getValues();
 
         if (
+            title.trim() === '' ||
             description.trim() === '' ||
             amount.trim() === '' ||
             date.trim() === ''
@@ -162,13 +187,14 @@ const Form = {
     },
 
     formatValues() {
-        let { description, amount, date } = Form.getValues();
+        let { title, description, amount, date } = Form.getValues();
 
         amount = Utils.formatAmount(amount);
 
         date = Utils.formatDate(date);
 
         return {
+            title,
             description,
             amount,
             date,
@@ -176,6 +202,7 @@ const Form = {
     },
 
     clearFields() {
+        Form.title.value = '';
         Form.description.value = '';
         Form.amount.value = '';
         Form.date.value = '';
@@ -193,6 +220,24 @@ const Form = {
         } catch (error) {
             alert(error.message);
         }
+    },
+};
+
+const Filter = {
+    income() {
+        DOM.clearTransactions();
+        Transaction.entradas().forEach(DOM.addTransaction);
+    },
+    expense() {
+        DOM.clearTransactions();
+        Transaction.saidas().forEach(DOM.addTransaction);
+    }
+}
+
+const Export = {
+    table2Excel() {
+        var table2excel = new Table2Excel();
+        table2excel.export(document.querySelectorAll('table#data-table'));
     },
 };
 
