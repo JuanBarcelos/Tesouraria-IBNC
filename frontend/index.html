@@ -1,93 +1,76 @@
-<!DOCTYPE html>
-<html lang="PT-br">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="src/css/style.css" />
-        <title>IBNC</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>dev.finance$</title>
     </head>
+
     <body>
-        <header class="content">
-            <section class="container">
-                <nav>
-                    <img src="src/img/logo.svg" alt="" />
-                    <h1>IBNC-Mesquita</h1>
-                </nav>
-                <div class="hero">
-                    <div class="price">
-                        <div class="title-price eyes">
-                            <p>Total em caisa</p>
-                            <img src="src/img/Eye.svg" alt="" />
-                        </div>
-                        <p class="valor"><samp>R$ 100.000,00</samp></p>
-                        <div class="title-price info">
-                            <a href="">
-                                <img src="src/img/Info.svg" alt="" />
-                                Detalhes do caixa
-                            </a>
-                        </div>
-                    </div>
-                    <button onclick="Modal.open()" class="btn-hero">
-                        Nova Transaçào
-                        <img src="src/img/PlusMath.svg" alt="" />
-                    </button>
+        <!--cabeçalho-->
+        <header>
+            <img src="src/img/logo.svg" alt="Logo Dev Finance" />
+        </header>
+
+        <!--conteudo principal-->
+        <main class="container">
+            <section id="balance">
+                <h2 class="sr-only">Balanço</h2>
+
+                <div class="card">
+                    <h3>
+                        <span>Entradas</span>
+                        <img
+                            src="src/img/income.svg"
+                            alt="Imagem de Entradas"
+                        />
+                    </h3>
+                    <p id="incomeDisplay">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>
+                        <span>Saidas</span>
+                        <img
+                            src="src/img/expense.svg"
+                            alt="Imagem de Saidas"
+                        />
+                    </h3>
+                    <p id="expenseDisplay">R$ 0,00</p>
+                </div>
+
+                <div class="card total">
+                    <h3>
+                        <span>Total</span>
+                        <img src="src/img/total.svg" alt="Imagem de Total" />
+                    </h3>
+                    <p id="totalDisplay">R$ 0,00</p>
                 </div>
             </section>
-        </header>
-        <main class="content">
-            <section class="container">
-                <div class="title">
-                    <h2>Transsações</h2>
-                    <div class="filter-transaction">
-                        <div class="filter">
-                            <a href=""> Todas - 20 </a>
-                        </div>
-                        <div class="filter filter-entradas">
-                            <a href=""> Entradas - 20 </a>
-                        </div>
-                        <div class="filter">
-                            <a href=""> Saidas - 20 </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="export">
-                    <button class="btn btn-excel">
-                        <img src="src/img/Excel.svg" alt="" />
-                    </button>
-                    <button class="btn btn-print">
-                        <img src="src/img/Printer.svg" alt="" />
-                    </button>
-                </div>
-                <div class="transaction">
-                    <table id="data-table">
-                        <thead>
-                            <tr>
-                                <th>Categoria</th>
-                                <th>Descrição</th>
-                                <th>Data</th>
-                                <th>Entrada/Saida</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Categoria">Oferta</td>
-                                <td data-label="Descrição">Culto de domingo</td>
-                                <td data-label="Data">22/07/2018</td>
-                                <td data-label="Entrada/Saida">Entrada</td>
-                                <td data-label="Valor">R$ 600,00</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Categoria">Oferta</td>
-                                <td data-label="Descrição">Culto de domingo</td>
-                                <td data-label="Data">22/07/2018</td>
-                                <td data-label="Entrada/Saida">Entrada</td>
-                                <td data-label="Valor">R$ 600,00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+            <section id="transaction">
+                <h2 class="sr-only">Transações</h2>
+
+                <a href="#" onclick="Modal.open()" class="button new"
+                    >+ Nova Transação</a
+                >
+
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </section>
         </main>
 
@@ -95,15 +78,7 @@
             <div class="modal">
                 <div class="moda-content">
                     <div class="form">
-                        <div class="modal-title">
-                            <h2>Nova Transação</h2>
-                        <a
-                            href="#"
-                            onclick="Modal.close()"
-                            class="button cancel"
-                            >X</a
-                        >
-                        </div>
+                        <h2>Nova Transação</h2>
                         <form action="" onsubmit="Form.submit(event)">
                             <div class="input-group">
                                 <label class="sr-only" for="description"
@@ -140,6 +115,12 @@
                             </div>
 
                             <div class="imput-group actions">
+                                <a
+                                    href="#"
+                                    onclick="Modal.close()"
+                                    class="button cancel"
+                                    >Cancelar</a
+                                >
                                 <button>Salvar</button>
                             </div>
                         </form>
@@ -148,6 +129,10 @@
             </div>
         </div>
 
-        <script src="src/js/app.js"></script>
+        <footer>
+            <p>dev.finance$</p>
+        </footer>
+
+        <script src="./scripts.js"></script>
     </body>
 </html>
