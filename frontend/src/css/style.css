@@ -1,193 +1,159 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* global---------------*/
+:root {
+    --darck-blue: #363f5f;
+    --green: #49aa26;
+    --light-green: #3dd705;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-:root {
-    font-size: 62.5%;
+html {
+    font-size: 93.75%; /*15px*/
 }
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.6rem;
     background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
 }
-.content {
-    display: flex;
-    justify-content: center;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 .container {
-    width: 120rem;
+    width: min(90vw, 800px);
+    margin: auto;
 }
-/*---- header ----*/
+/*titles--------------*/
+h2 {
+    margin-top: 3, 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--darck-blue);
+}
+
+/*Link e Buttons------------*/
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--light-green);
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: white;
+    background: var(--green);
+    padding: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+button:hover {
+    background: var(--light-green);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+.button.cancel {
+    color: #e92929;
+    border: 2px #e92929 solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+.button.cancel:hover {
+    opacity: 1;
+}
+/* header-------------*/
 header {
-    width: 100%;
-    height: 35rem;
-    background: #4542cb;
-    border-radius: 0px 0px 60px 60px;
+    background: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+    font-weight: normal;
 }
-nav {
-    display: flex;
-    align-items: center;
+header h1 {
+    color: #fff;
+    font-weight: 100;
+}
 
-    color: #ffffff;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
+/*balance---------------------*/
+#balance {
+    margin-top: -8rem;
+}
+#balance h2 {
+    color: #fff;
+}
 
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+/*cards----------------------*/
+.card {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    color: var(--darck-blue);
 }
-nav img {
-    margin-right: 1.5rem;
-}
-.hero {
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 7rem;
 }
-.price .valor {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 54px;
-    color: #ffffff;
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 1rem;
 }
-.price .title-price {
-    display: flex;
-    align-items: center;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: #ffffff;
+.card.total {
+    background: var(--green);
+    color: white;
 }
-.eyes {
-    margin-bottom: 1.5rem;
-}
-.eyes img {
-    margin-left: 1.5rem;
-}
-.info {
-    margin-top: 1.5rem;
-}
-.info a {
-    display: flex;
-    align-items: center;
-
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: #ffffff;
-}
-.info img {
-    margin-right: 1.5rem;
-}
-.btn-hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25rem;
-    height: 5.7rem;
-    background: #cb4242;
-    border-radius: 10px;
-    border: none;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: #ffffff;
-}
-.btn-hero img {
-    margin-left: 1.5rem;
-}
-/*--- main --- */
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 3rem;
-}
-.title h2 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-    color: #000000;
-}
-.filter-transaction {
-    display: flex;
-    align-items: center;
-}
-.filter-transaction .filter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 12.6rem;
-    height: 3.6rem;
-    border: 1px solid #000000;
-    border-radius: 30px;
-    margin-right: 1.5rem;
-}
-.filter a {
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000000;
-}
-.filter:hover {
-    background: #000000;
-    border: 1px solid #000000;
-    border-radius: 30px;
-}
-.filter a:hover {
-    color: #ffffff;
-}
-.export {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-.export .btn {
-    border: none;
-    border-radius: 10px;
-    width: 5rem;
-    height: 5rem;
-}
-.export .btn-excel {
-    background: #2d7b3a;
-    margin-right: 1rem;
-}
-.export .btn-print {
-    background: #7c7575;
-}
-
-/* table */
-.transaction {
+/*table---------------------*/
+#transaction {
+    display: block;
     width: 100%;
-    height: 100%;
+    overflow-x: auto;
 }
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
-}
-table thead {
-    display: none;
+    color: #969cb3;
 }
 
+table thead tr th:first-child,
 table tbody tr td:first-child {
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 0.25rem 0 0 0.25rem;
 }
 
+table thead tr th:last-child,
 table tbody tr td:last-child {
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table th {
+    background: #fff;
+    font-weight: normal;
+
+    padding: 1rem 2rem;
+    text-align: left;
 }
 
 table tbody tr {
@@ -198,14 +164,20 @@ table tbody tr:hover {
 }
 
 table tbody td {
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: #000000;
     background: #fff;
     padding: 1rem 2rem;
+}
+
+td.description {
+    color: var(--darck-blue);
+}
+
+td.income {
+    color: #12a454;
+}
+
+td.expense {
+    color: #e92929;
 }
 
 /*modal---------------------*/
@@ -237,11 +209,6 @@ table tbody td {
 
     z-index: 1;
 }
-.modal-title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 /*form---------------------*/
 #form {
     max-width: 500px;
@@ -272,85 +239,23 @@ input {
 .imput-group.actions button {
     width: 48%;
 }
-
-/* resposividade */
-@media screen and (max-width: 1200px) {
-    .container {
-        width: 80rem;
-    }
-    header {
-        height: 32rem;
-    }
-    .hero {
-        margin-top: 6rem;
-    }
-    .price {
-        width: 260px;
-        height: 138px;
-        align-items: flex-start;
-    }
-    .title {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 3rem;
-    }
-    .filter-transaction .filter {
-        width: 9.5rem;
-        height: 2.9rem;
-        margin-right: 1rem;
-    }
-    .filter-transaction .filter-entradas a {
-        font-size: 1.2rem;
-        line-height: 2.1rem;
-    }
-    .filter a {
-        font-size: 1.4rem;
-        line-height: 2.1rem;
-    }
-    .export .btn {
-        border: none;
-        border-radius: 10px;
-        width: 4rem;
-        height: 4rem;
-    }
-    .export img {
-        width: 3rem;
-        height: 3rem;
-    }
-    table,
-    tbody,
-    td,
-    tr {
-        display: block;
-        width: 100%;
-    }
-    table tr {
-        margin-bottom: 1.5rem;
-    }
-    table tbody tr td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-        font-size: 1.6rem;
-    }
-    table td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        text-align: left;
-        font-weight: 700;
-        font-size: 1.4rem;
-        margin-left: 1rem;
-    }
+/*footer---------------------*/
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--darck-blue);
+    opacity: 0.6;
 }
-@media screen and (max-width: 600px) {
-    .container {
-        width: 35rem;
+
+/*Responsive---------------------*/
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
     }
-    .btn-hero {
-        display: none;
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 }
