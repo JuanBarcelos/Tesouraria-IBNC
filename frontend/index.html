@@ -54,17 +54,35 @@
                         <span>Caixa Total</span>
                         <img src="src/img/total.svg" alt="Imagem de Total" />
                     </h3>
-                    <p id="totalDisplay">R$ 0,00</p>
+                    <p id="caixaDisplay">R$ 0,00</p>
                 </div>
             </section>
 
             <section id="transaction">
                 <h2 class="sr-only">Transações</h2>
 
-                <a href="#" onclick="Modal.open()" class="button new">+ Nova Transação</a>
-                <a href="#" onclick="Filter.income()" class="button new">ENTRADAS</a>
-                <a href="#" onclick="Filter.expense()" class="button new">SAIDAS</a>
-                <a href="#" onclick="Export.table2Excel()" class="button new">Excel</a>
+                <div class="btn-list">
+                    <div class="btn" onclick="Modal.open()">
+                        <a href="#">+ Nova Transação</a>
+                    </div>
+
+                    <div class="btn" onclick="Filter.all()">
+                        <a href="#">LISTAR TODAS</a>
+                    </div>
+
+                    <div class="btn" onclick="Filter.income()">
+                        <a href="#">LISTAR ENTRADAS</a>
+                    </div>
+
+                    <div class="btn" onclick="Filter.expense()">
+                        <a href="#">LISTAR SAIDAS</a>
+                    </div>
+
+                    <div class="btn" onclick="Export.table2Excel()">
+                        <a href="#">Exportar Excel</a>
+                    </div>
+                </div>
+
                 <table id="data-table">
                     <thead>
                         <tr>
@@ -94,46 +112,124 @@
                                     placeholder="Titulo"
                                 >
                                     <option value="">TITULO</option>
-                                    <option value="CURSO SEMINÁRIO TEOLÓGICO">CURSO SEMINÁRIO TEOLÓGICO</option>
-                                    <option value="RENDIMENTOS APLICAÇÃO AUTOMÁTICA">RENDIMENTOS APLICAÇÃO AUTOMÁTICA</option>
-                                    <option value="MINISTÉRIO DE JOVENS">MINISTÉRIO DE JOVENS</option>
-                                    <option value="CARTEIRNHA DE MEMBRO">CARTEIRNHA DE MEMBRO</option>
-                                    <option value="CONFRATERNIZAÇÃO FINAL DE ANO">CONFRATERNIZAÇÃO FINAL DE ANO</option>
-                                    <option value="CAMPANHA POLTRONAS">CAMPANHA POLTRONAS</option>
-                                    <option value="MINISTÉRIO DE RECEPÇÃO">MINISTÉRIO DE RECEPÇÃO</option>
-                                    <option value="MINISTÉRIO DE INTERCESSÃO">MINISTÉRIO DE INTERCESSÃO</option>
-                                    <option value="MINISTÉRIO DE TEATRO">MINISTÉRIO DE TEATRO</option>
-                                    <option value="MINISTÉRIO DE MULHERES">MINISTÉRIO DE MULHERES</option>
-                                    <option value="AÇÃO SOCIAL">AÇÃO SOCIAL</option>
-                                    <option value="MINISTÉRIO DE LIBRAS">MINISTÉRIO DE LIBRAS</option>
-                                    <option value="MINISTÉRIO DE CORAL">MINISTÉRIO DE CORAL</option>
-                                    <option value="MINISTÉRIO DE DANÇA">MINISTÉRIO DE DANÇA</option>
+                                    <option value="CURSO SEMINÁRIO TEOLÓGICO">
+                                        CURSO SEMINÁRIO TEOLÓGICO
+                                    </option>
+                                    <option
+                                        value="RENDIMENTOS APLICAÇÃO AUTOMÁTICA"
+                                    >
+                                        RENDIMENTOS APLICAÇÃO AUTOMÁTICA
+                                    </option>
+                                    <option value="MINISTÉRIO DE JOVENS">
+                                        MINISTÉRIO DE JOVENS
+                                    </option>
+                                    <option value="CARTEIRNHA DE MEMBRO">
+                                        CARTEIRNHA DE MEMBRO
+                                    </option>
+                                    <option
+                                        value="CONFRATERNIZAÇÃO FINAL DE ANO"
+                                    >
+                                        CONFRATERNIZAÇÃO FINAL DE ANO
+                                    </option>
+                                    <option value="CAMPANHA POLTRONAS">
+                                        CAMPANHA POLTRONAS
+                                    </option>
+                                    <option value="MINISTÉRIO DE RECEPÇÃO">
+                                        MINISTÉRIO DE RECEPÇÃO
+                                    </option>
+                                    <option value="MINISTÉRIO DE INTERCESSÃO">
+                                        MINISTÉRIO DE INTERCESSÃO
+                                    </option>
+                                    <option value="MINISTÉRIO DE TEATRO">
+                                        MINISTÉRIO DE TEATRO
+                                    </option>
+                                    <option value="MINISTÉRIO DE MULHERES">
+                                        MINISTÉRIO DE MULHERES
+                                    </option>
+                                    <option value="AÇÃO SOCIAL">
+                                        AÇÃO SOCIAL
+                                    </option>
+                                    <option value="MINISTÉRIO DE LIBRAS">
+                                        MINISTÉRIO DE LIBRAS
+                                    </option>
+                                    <option value="MINISTÉRIO DE CORAL">
+                                        MINISTÉRIO DE CORAL
+                                    </option>
+                                    <option value="MINISTÉRIO DE DANÇA">
+                                        MINISTÉRIO DE DANÇA
+                                    </option>
                                     <option value="OFERTAS">OFERTAS</option>
-                                    <option value="MINISTÉRIO DE ADOLESCENTES">MINISTÉRIO DE ADOLESCENTES</option>
+                                    <option value="MINISTÉRIO DE ADOLESCENTES">
+                                        MINISTÉRIO DE ADOLESCENTES
+                                    </option>
                                     <option value="DÍZIMOS">DÍZIMOS</option>
-                                    <option value="ÁGUA E ESGOTO">ÁGUA E ESGOTO</option>
-                                    <option value="ALUGUEL DO IMÓVEL">ALUGUEL DO IMÓVEL</option>
-                                    <option value="COMBUSTÍVEL">COMBUSTÍVEL</option>
-                                    <option value="DESPESAS COM PESSOAL">DESPESAS COM PESSOAL</option>
+                                    <option value="ÁGUA E ESGOTO">
+                                        ÁGUA E ESGOTO
+                                    </option>
+                                    <option value="ALUGUEL DO IMÓVEL">
+                                        ALUGUEL DO IMÓVEL
+                                    </option>
+                                    <option value="COMBUSTÍVEL">
+                                        COMBUSTÍVEL
+                                    </option>
+                                    <option value="DESPESAS COM PESSOAL">
+                                        DESPESAS COM PESSOAL
+                                    </option>
                                     <option value="DROGARIAS">DROGARIAS</option>
-                                    <option value="ELEMENTOS DA CEIA">ELEMENTOS DA CEIA</option>
-                                    <option value="ENERGIA ELÉTRICA">ENERGIA ELÉTRICA</option>
-                                    <option value="EVANGELISMOS E MISSÕES">EVANGELISMOS E MISSÕES</option>
-                                    <option value="HONORÁRIOS CONTÁBEIS">HONORÁRIOS CONTÁBEIS</option>
-                                    <option value="LANCHES E REFEIÇÕES">LANCHES E REFEIÇÕES</option>
-                                    <option value="MATERIAL DE CONSERVAÇÃO E MANUTENÇÃO">MATERIAL DE CONSERVAÇÃO E MANUTENÇÃO</option>
-                                    <option value="MATERIAL DE EXPEDIENTE">MATERIAL DE EXPEDIENTE</option>
-                                    <option value="MATERIAL DE LIMPEZA">MATERIAL DE LIMPEZA</option>
-                                    <option value="MATERIAL DE USO E CONSUMO">MATERIAL DE USO E CONSUMO</option>
-                                    <option value="MINISTÉRIO DE HOMENS">MINISTÉRIO DE HOMENS</option>
-                                    <option value="MINISTÉRIO DE MULTIMÍDIA">MINISTÉRIO DE MULTIMÍDIA</option>
-                                    <option value="MINISTÉRIO INFANTIL">MINISTÉRIO INFANTIL</option>
-                                    <option value="OFERTAS DOS PREGADORES">OFERTAS DOS PREGADORES</option>
-                                    <option value="PASSAGENS E HOSPEDAGENS">PASSAGENS E HOSPEDAGENS</option>
+                                    <option value="ELEMENTOS DA CEIA">
+                                        ELEMENTOS DA CEIA
+                                    </option>
+                                    <option value="ENERGIA ELÉTRICA">
+                                        ENERGIA ELÉTRICA
+                                    </option>
+                                    <option value="EVANGELISMOS E MISSÕES">
+                                        EVANGELISMOS E MISSÕES
+                                    </option>
+                                    <option value="HONORÁRIOS CONTÁBEIS">
+                                        HONORÁRIOS CONTÁBEIS
+                                    </option>
+                                    <option value="LANCHES E REFEIÇÕES">
+                                        LANCHES E REFEIÇÕES
+                                    </option>
+                                    <option
+                                        value="MATERIAL DE CONSERVAÇÃO E MANUTENÇÃO"
+                                    >
+                                        MATERIAL DE CONSERVAÇÃO E MANUTENÇÃO
+                                    </option>
+                                    <option value="MATERIAL DE EXPEDIENTE">
+                                        MATERIAL DE EXPEDIENTE
+                                    </option>
+                                    <option value="MATERIAL DE LIMPEZA">
+                                        MATERIAL DE LIMPEZA
+                                    </option>
+                                    <option value="MATERIAL DE USO E CONSUMO">
+                                        MATERIAL DE USO E CONSUMO
+                                    </option>
+                                    <option value="MINISTÉRIO DE HOMENS">
+                                        MINISTÉRIO DE HOMENS
+                                    </option>
+                                    <option value="MINISTÉRIO DE MULTIMÍDIA">
+                                        MINISTÉRIO DE MULTIMÍDIA
+                                    </option>
+                                    <option value="MINISTÉRIO INFANTIL">
+                                        MINISTÉRIO INFANTIL
+                                    </option>
+                                    <option value="OFERTAS DOS PREGADORES">
+                                        OFERTAS DOS PREGADORES
+                                    </option>
+                                    <option value="PASSAGENS E HOSPEDAGENS">
+                                        PASSAGENS E HOSPEDAGENS
+                                    </option>
                                     <option value="PRESENTES">PRESENTES</option>
-                                    <option value="SEGURO DO IMÓVEL">SEGURO DO IMÓVEL</option>
-                                    <option value="TARIFA BANCÁRIA">TARIFA BANCÁRIA</option>
-                                    <option value="TELEFONE E INTERNET">TELEFONE E INTERNET</option>
+                                    <option value="SEGURO DO IMÓVEL">
+                                        SEGURO DO IMÓVEL
+                                    </option>
+                                    <option value="TARIFA BANCÁRIA">
+                                        TARIFA BANCÁRIA
+                                    </option>
+                                    <option value="TELEFONE E INTERNET">
+                                        TELEFONE E INTERNET
+                                    </option>
                                     <option value="UBER">UBER</option>
                                 </select>
                             </div>

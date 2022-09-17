@@ -27,6 +27,45 @@ const Storage = {
     },
 };
 
+const title = [
+    'CURSO SEMINÁRIO TEOLÓGICO',
+    'RENDIMENTOS APLICAÇÃO AUTOMÁTICA',
+    'MINISTÉRIO DE JOVENS',
+    'CARTEIRNHA DE MEMBRO',
+    'CONFRATERNIZAÇÃO FINAL DE ANO',
+    'CAMPANHA POLTRONAS',
+    'MINISTÉRIO DE RECEPÇÃO',
+    'MINISTÉRIO DE INTERCESSÃO',
+    'MINISTÉRIO DE TEATRO',
+    'MINISTÉRIO DE MULHERES',
+    'AÇÃO SOCIAL',
+    'MINISTÉRIO DE LIBRAS',
+    'MINISTÉRIO DE CORAL',
+    'MINISTÉRIO DE DANÇA',
+    'MINISTÉRIO DE ADOLESCENTES',
+    'ÁGUA E ESGOTO',
+    'ALUGUEL DO IMÓVEL',
+    'COMBUSTÍVEL',
+    'DESPESAS COM PESSOAL',
+    'ELEMENTOS DA CEIA',
+    'ENERGIA ELÉTRICA',
+    'EVANGELISMOS E MISSÕES',
+    'HONORÁRIOS CONTÁBEIS',
+    'LANCHES E REFEIÇÕES',
+    'MATERIAL DE CONSERVAÇÃO E MANUTENÇÃO',
+    'MATERIAL DE EXPEDIENTE',
+    'MATERIAL DE LIMPEZA',
+    'MATERIAL DE USO E CONSUMO',
+    'MINISTÉRIO DE HOMENS',
+    'MINISTÉRIO DE MULTIMÍDIA',
+    'MINISTÉRIO INFANTIL',
+    'OFERTAS DOS PREGADORES',
+    'PASSAGENS E HOSPEDAGENS',
+    'SEGURO DO IMÓVEL',
+    'TARIFA BANCÁRIA',
+    'TELEFONE E INTERNET',
+];
+
 const Transaction = {
     all: Storage.get(),
 
@@ -55,8 +94,9 @@ const Transaction = {
     entradas() {
         const list = [];
         Transaction.all.map((transaction) => {
+
             if (transaction.amount > 0) {
-                list.push(transaction);
+                list.push(transaction)
             }
         });
         return list;
@@ -85,6 +125,11 @@ const Transaction = {
     total() {
         return Transaction.incomes() + Transaction.expenses();
     },
+
+    mensal() {
+        const caixa = 12000000;
+        return caixa - Transaction.total();
+    }
 };
 
 const DOM = {
@@ -123,6 +168,8 @@ const DOM = {
             Utils.formatCurrency(Transaction.expenses());
         document.getElementById('totalDisplay').innerHTML =
             Utils.formatCurrency(Transaction.total());
+        document.getElementById('caixaDisplay').innerHTML =
+            Utils.formatCurrency(Transaction.mensal());
     },
 
     clearTransactions() {
@@ -231,6 +278,9 @@ const Filter = {
     expense() {
         DOM.clearTransactions();
         Transaction.saidas().forEach(DOM.addTransaction);
+    },
+    all() {
+        App.init();
     }
 }
 
